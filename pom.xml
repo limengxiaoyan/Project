@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.magicbeans</groupId>
+    <artifactId>project</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>eden</module>
+    </modules>
+
+
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <spring-session-version>1.3.0.RELEASE</spring-session-version>
+        <spring-boot-version>1.5.4.RELEASE</spring-boot-version>
+        <swagger2-version>2.2.2</swagger2-version>
+        <mybatis-spring-boot-starter-version>1.3.0</mybatis-spring-boot-starter-version>
+        <fastjson-version>1.2.13</fastjson-version>
+        <jackson-databind-verion>2.6.5</jackson-databind-verion>
+        <jedis-version>2.8.1</jedis-version>
+        <spring.data.version>1.7.2.RELEASE</spring.data.version>
+        <mybatis-plus.version>2.0.9</mybatis-plus.version>
+        <mysql-connector.version>5.1.38</mysql-connector.version>
+        <druid.version>0.2.20</druid.version>
+        <mybatisplus-spring-boot-starter.version>1.0.4</mybatisplus-spring-boot-starter.version>
+        <spring-boot-maven-plugins.version>1.4.1.RELEASE</spring-boot-maven-plugins.version>
+        <junit.version>4.12</junit.version>
+        <okhttp.version>3.4.1</okhttp.version>
+        <velocity.version>1.7</velocity.version>
+        <hibernate-validator.version>5.3.5.Final</hibernate-validator.version>
+        <build.out.dir>C:\Users\Administrator\Desktop\web</build.out.dir>
+        <qiniu.version>[7.2.0, 7.2.99]</qiniu.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okhttp.version}</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>Nexus aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
