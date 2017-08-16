@@ -8,5 +8,6 @@
 <#list userPage.records as records>
     欢迎 ${records.name} ！
 </#list>
+<img src="/user/download">
 </body>
 </html>

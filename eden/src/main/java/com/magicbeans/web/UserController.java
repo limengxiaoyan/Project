@@ -2,19 +2,17 @@ package com.magicbeans.web;
 
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.toolkit.IdWorker;
 import com.magicbeans.entity.User;
 import com.magicbeans.service.IUserService;
 import com.magicbeans.util.PrintUtil;
-import com.magicbeans.web.qiniuyun.QiNiuUpload;
+import com.magicbeans.util.QiNiuUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>
@@ -30,6 +28,8 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
+    @Autowired
+    private QiNiuUtil qiNiuUpload;
 
     @GetMapping("page")
     public ModelAndView findPage(ModelAndView model){
@@ -76,14 +76,14 @@ public class UserController {
             for(int i = 0;i<upfile.length;i++){
                 Map<String,String> map = new HashMap<String, String>();
                 MultipartFile file = upfile[i];
-                String fileName = file.getOriginalFilename();
-                String contentType = file.getContentType();
-                PrintUtil.println(file.getContentType());
+                String fileName = "image/"+IdWorker.get32UUID();
+                String name = file.getName();
+                byte[] fileByte = file.getBytes();
                 //返回对象
                 System.out.println("上传文件"+fileName);
                 try {
-//                    new QiNiuUpload.upload(fileByte,fileName);
-                    map.put("url",contentType);
+                    qiNiuUpload.uploadFile(fileByte,fileName);
+                    map.put("url",name);
                     map.put("name",fileName);
                     map.put("state","SUCCESS");
                 }catch (Exception e){
@@ -96,5 +96,9 @@ public class UserController {
         return list;
     }
 
+    @GetMapping("download")
+    public String download(String filePath){
+        return qiNiuUpload.download(filePath);
+    }
 	
 }
