@@ -1168,6 +1168,15 @@
         <root url="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="taobao-sdk-java-auto_1455552377940-20170817">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/Desktop/sdk-java-24589674/taobao-sdk-java-auto_1455552377940-20170817.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/Desktop/sdk-java-24589674/taobao-sdk-java-auto_1455552377940-20170817-source.jar!/" />
+      </SOURCES>
+    </library>
   </component>
   <component name="masterDetails">
     <states>
